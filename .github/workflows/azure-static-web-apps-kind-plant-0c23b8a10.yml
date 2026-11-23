@@ -29,8 +29,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const core = require('@actions/core')
-            return await core.getIDToken()
+            const coredemo = require('@actions/core')
+            return await coredemo.getIDToken()
           result-encoding: string
 
       - name: Deploy static files
@@ -49,8 +49,6 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: Install OIDC client
         run: npm install @actions/core@1.6.0 @actions/http-client
 
@@ -59,8 +57,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const core = require('@actions/core')
-            return await core.getIDToken()
+            const coredemo = require('@actions/core')
+            return await coredemo.getIDToken()
           result-encoding: string
 
       - name: Close preview environment
